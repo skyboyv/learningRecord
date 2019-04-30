@@ -89,6 +89,93 @@ console.log(arr.filter(item => item ===1));
 console.log(Array.from('foo'));//[ 'f', 'o', 'o' ]
 console.log(Array.of(1, 2, 3));//[ 1, 2, 3 ]
 
+/**
+ * unshift
+ * 添加元素到数组开头
+ */
+arr.unshift('添加得开头元素');
+console.log(arr); //[ '添加得开头元素', 1, 2, 3, 4, 5, 1, 6, 7, 8, 1, 9, 0 ]
+/**
+ * shift
+ * 删除数组开头元素
+ */
+arr.shift('添加得开头元素');
+console.log(arr); //[ 1, 2, 3, 4, 5, 1, 6, 7, 8, 1, 9, 0 ]
+/**
+ * splice
+ * 有参数时，替换指定下标得元素，无参数时，删除指定下标得元素
+ */
+arr.splice(0,1,'123');
+console.log(arr);//[ '123', 2, 3, 4, 5, 1, 6, 7, 8, 1, 9, 0 ]
+arr.splice(0,1);
+console.log(arr); //[ 2, 3, 4, 5, 1, 6, 7, 8, 1, 9, 0 ]
+/**
+ * toString
+ * 将数组变为字符串,不去除逗号分隔符
+ */
+console.log(arr.toString());//1,2,3,4,5,1,6,7,8,1,9,0
+/**
+ * join
+ * 将数组变为字符串,并去除逗号分隔符
+ */
+console.log(arr.join(''));//123451678190
 
+/**
+ * some
+ * 测试是否至少有一个元素通过由提供的函数实现的测试。
+ * 对于放在空数组上的任何条件，此方法返回false。
+ */
+const array7 = [1, 2, 3, 4, 5];
 
+const even = function(element) {
+    // checks whether an element is even
+    return element % 2 === 0;
+};
 
+console.log(array7.some(even)); //true
+
+/**
+ * slice
+ * 数组的浅拷贝
+ * 拷贝数组中从开始下标到结束下标得值，并返回新数组，不包含结束下标得值
+ */
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2,3));//[ 'camel' ]
+/**
+ * reverse
+ * 倒置原数组并改变原数组
+ */
+const reverseAnimals =animals.reverse();
+console.log(reverseAnimals);//[ 'elephant', 'duck', 'camel', 'bison', 'ant' ]
+console.log(animals);//[ 'elephant', 'duck', 'camel', 'bison', 'ant' ]
+
+/**
+ * concat
+ * 合并两个数组
+ */
+console.log([0,1,2].concat([3,4,5]));//[ 0, 1, 2, 3, 4, 5 ]
+
+/**
+ * pop
+ * 删除最后一个元素，并改变原数组
+ * @type {string[]}
+ */
+const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+console.log(plants.pop());
+// expected output: "tomato"
+console.log(plants);
+// expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+plants.pop();
+console.log(plants);
+// expected output: Array ["broccoli", "cauliflower", "cabbage"]
+/**
+ * map
+ * 创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果
+ * @type {number[]}
+ */
+var array8 = [1, 4, 9, 16];
+// pass a function to map
+const map1 = array8.map(x => x * 2);
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
