@@ -57,10 +57,38 @@ console.log(array4.findIndex(item => item === 'a')); //0
 const array5= ['a', 'b', 'c', 'a', 'e'];
 console.log(array5.fill(1,2));//[ 'a', 'b', 1, 1, 1 ]
 
-//在浏览器上可运行
-const arr3 = [1, 2, [3, 4, [5, 6]]];
-const newArray1 =arr3.flat(2); //[1, 2, 3, 4, 5, 6]
-const newArray2 =arr3.flat(1); //[1, 2, 3, 4, [5,6]
-console.log(newArray1);
-console.log(newArray2);
+/**
+ *按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回
+ * 在浏览器上可运行
+ * @type {*[]}
+ * return 一个包含将数组与子数组中所有元素的新数组。
+ */
+// const arr3 = [1, 2, [3, 4, [5, 6]]];
+// const newArray1 =arr3.flat(2); //[1, 2, 3, 4, 5, 6]
+// const newArray2 =arr3.flat(1); //[1, 2, 3, 4, [5,6]
+// console.log(newArray1);
+// console.log(newArray2);
+
+/**
+ * flatMap
+ *返回符合条件得新数组
+ * 效率比map更快
+ * @type {number[]}
+ */
+const arr1 = [1, 2, 3, 4];
+
+console.log(arr1.map(x => [x * 2]));// [[2], [4], [6], [8]]
+// arr1.flatMap(x => [x * 2]);// [2, 4, 6, 8]
+// 只会将 flatMap 中的函数返回的数组 “压平” 一层
+// arr1.flatMap(x => [[x * 2]]);// [[2], [4], [6], [8]]
+
+
+const arr = [1,2,3,4,5,1,6,7,8,1,9,0];
+console.log(arr.filter(item => item ===1));
+
+console.log(Array.from('foo'));//[ 'f', 'o', 'o' ]
+console.log(Array.of(1, 2, 3));//[ 1, 2, 3 ]
+
+
+
 
